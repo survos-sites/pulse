@@ -1,0 +1,27 @@
+{% extends "talk/base.html.twig" %}
+
+{% block body %}
+    <h1>Talk</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ talk.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ talk.title }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ talk.code }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+{% if is_granted('ROLE_ADMIN') %}
+    <a class="btn btn-primary" href="{{ path('talk_edit', talk.rp) }}">edit</a>
+    {{ include('talk/_delete_form.html.twig') }}
+{% endif %}
+{% endblock %}
