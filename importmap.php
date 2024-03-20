@@ -154,4 +154,104 @@ return [
         'version' => '1.7.1',
         'type' => 'css',
     ],
+    'htmx.org' => [
+        'version' => '1.9.10',
+    ],
+    'stimulus-timeago' => [
+        'version' => '4.1.0',
+    ],
+    'date-fns' => [
+        'version' => '2.30.0',
+    ],
+    '@babel/runtime/helpers/esm/typeof' => [
+        'version' => '7.23.8',
+    ],
+    '@babel/runtime/helpers/esm/createForOfIteratorHelper' => [
+        'version' => '7.23.8',
+    ],
+    '@babel/runtime/helpers/esm/assertThisInitialized' => [
+        'version' => '7.23.8',
+    ],
+    '@babel/runtime/helpers/esm/inherits' => [
+        'version' => '7.23.8',
+    ],
+    '@babel/runtime/helpers/esm/createSuper' => [
+        'version' => '7.23.8',
+    ],
+    '@babel/runtime/helpers/esm/classCallCheck' => [
+        'version' => '7.23.8',
+    ],
+    '@babel/runtime/helpers/esm/createClass' => [
+        'version' => '7.23.8',
+    ],
+    '@babel/runtime/helpers/esm/defineProperty' => [
+        'version' => '7.23.8',
+    ],
+    'htmx.org/dist/ext/debug.js' => [
+        'version' => '1.9.10',
+    ],
+    'htmx.org/dist/ext/client-side-templates.js' => [
+        'version' => '1.9.10',
+    ],
+    'mustache' => [
+        'version' => '4.2.0',
+    ],
+    '@picocss/pico' => [
+        'version' => '2.0.6',
+    ],
+    '@picocss/pico/css/pico.min.css' => [
+        'version' => '2.0.6',
+        'type' => 'css',
+    ],
+    'dexie' => [
+        'version' => '3.2.6',
+    ],
+    'onsenui' => [
+        'version' => '2.12.8',
+    ],
+    'onsenui/css/onsenui.css' => [
+        'version' => '2.12.8',
+        'type' => 'css',
+    ],
+    'onsenui/css/onsen-css-components.min.css' => [
+        'version' => '2.12.8',
+        'type' => 'css',
+    ],
+    'onsenui/esm' => [
+        'version' => '2.12.8',
+    ],
+    'onsenui/esm/ons' => [
+        'version' => '2.12.8',
+    ],
+    'onsenui/esm/elements/ons-page' => [
+        'version' => '2.12.8',
+    ],
+    'onsenui/esm/elements/ons-toolbar' => [
+        'version' => '2.12.8',
+    ],
+    'onsenui/esm/elements/ons-button' => [
+        'version' => '2.12.8',
+    ],
+    'onsenui/esm/elements/ons-navigator' => [
+        'version' => '2.12.8',
+    ],
+    'swiper/css/bundle' => [
+        'version' => '11.0.7',
+    ],
+    'stimulus-carousel' => [
+        'version' => '5.0.1',
+    ],
+    'swiper/bundle' => [
+        'version' => '8.4.7',
+    ],
+    'ssr-window' => [
+        'version' => '4.0.2',
+    ],
+    'dom7' => [
+        'version' => '4.0.6',
+    ],
+    'bootswatch/dist/sandstone/bootstrap.min.css' => [
+        'version' => '5.3.3',
+        'type' => 'css',
+    ],
 ];

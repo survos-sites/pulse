@@ -57,6 +57,7 @@ final class AppLoadDataCommand extends InvokableServiceCommand
                         $this->entityManager->persist($talk);
                         $this->existingTalks[$code] = $talk;
                     }
+                    $talk->setData($talkData);
                     // @todo: update the talk with speakers, time, etc.
                     $talk->setTitle($talkData['name']);
                 }

@@ -41,6 +41,7 @@ final class AppMenuEventListener implements KnpMenuHelperInterface
         $options = $event->getOptions();
         $this->add($menu, 'survos_commands');
         $this->add($menu, 'talk_browse');
+        $this->add($menu, 'api_doc');
         $this->add($menu, 'talk_index');
 
         //        $this->add($menu, 'app_homepage');

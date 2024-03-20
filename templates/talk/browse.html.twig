@@ -5,6 +5,11 @@
 {% block body %}
 <h1>{{ class }} {{ _self }}</h1>
 
+    {% set columns = [
+    'title',
+        'code'
+    ] %}
+
 <twig:api_grid
         facets="false"
         :class="class"
@@ -13,8 +18,11 @@
         :columns="columns"
 >
 
-    <twig:block name="id">
-        ID: {{ row.id }}
+    <twig:block name="title">
+        <a href="{{ path('talk_show', row.rp) }}">{{ row.title }}</a>
+    </twig:block>
+    <twig:block name="code">
+         {{ row.code }}
     </twig:block>
 </twig:api_grid>
 {% endblock %}

@@ -4,9 +4,14 @@
 
 namespace App\Controller;
 
+use ApiPlatform\Api\IriConverterInterface;
+use App\Entity\Reaction;
 use App\Entity\Talk;
+use App\Form\ReactionFormType;
 use App\Form\TalkType;
 use Doctrine\ORM\EntityManagerInterface;
+use Survos\InspectionBundle\Services\InspectionService;
+use Symfony\Bridge\Twig\Attribute\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -35,11 +40,41 @@ class TalkController extends AbstractController
     }
 
     #[Route('/', name: 'talk_show', options: ['expose' => true])]
-    public function show(Talk $talk): Response
+    public function show(Request $request,
+                         IriConverterInterface $iriConverter,
+                         Talk $talk): Response
     {
+        $url = $iriConverter->getIriFromResource($talk);
+        $reaction = (new Reaction())->setTalk($talk);
+        $reaction->setType("message")
+            ->setMessage("awesome! " . rand(100, 10000));
+        $form = $this->createForm(ReactionFormType::class, $reaction);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->entityManager;
+            $entityManager->persist($reaction);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('talk_show', $talk->getrp());
+        }
         return $this->render('talk/show.html.twig', [
+            'apiUrl' => $url,
             'talk' => $talk,
+            'form' => $form->createView()
         ]);
+    }
+
+    #[Route('/_reactions', name: '_talk_reactions', options: ['expose' => true])]
+    #[Template('talk/_reactions.html.twig')]
+    public function reactions(Talk $talk): Response
+    {
+        return $this->render('talk/_reactions.html.twig', [
+            'reactions' => $talk->getReactions()
+        ]);
+        return ['reactions' => $talk->getReactions()];
+
+
     }
 
     #[Route('/edit', name: 'talk_edit', options: ['expose' => true])]

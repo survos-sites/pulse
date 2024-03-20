@@ -3,11 +3,13 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use App\Repository\TalkRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\DBAL\Types\Types;
 use Survos\CoreBundle\Entity\RouteParametersInterface;
 use Survos\CoreBundle\Entity\RouteParametersTrait;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -18,17 +20,19 @@ use Symfony\Component\Serializer\Attribute\Groups;
 #[ORM\UniqueConstraint(fields: ['code'])]
 #[UniqueEntity(['code'])]
 #[ApiResource(
-    operations: [new GetCollection(name: self::MEILI_ROUTE)],
+    operations: [
+        new Get(normalizationContext: ['groups' => ['talk.read', 'rp', 'talk.details']]),
+        new GetCollection(name: self::MEILI_ROUTE)],
     normalizationContext: ['groups' => ['talk.read', 'rp']]
 )]
-#[MultiF]
-class Talk implements RouteParametersInterface
+class Talk implements RouteParametersInterface, \Stringable
 {
     const MEILI_ROUTE='meili_talk';
     use RouteParametersTrait;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['talk.read'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
@@ -40,10 +44,16 @@ class Talk implements RouteParametersInterface
     private ?User $user = null;
 
     #[ORM\OneToMany(targetEntity: Reaction::class, mappedBy: 'talk', orphanRemoval: true)]
+    #[ORM\OrderBy(["createdAt" => "DESC"])]
+    #[Groups(['talk.details'])]
     private Collection $reactions;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['talk.read'])]
     private ?string $code = null;
+
+    #[ORM\Column( nullable: true, options: ['jsonb' => true])]
+    private ?array $data = null;
 
     public function __construct()
     {
@@ -120,4 +130,28 @@ class Talk implements RouteParametersInterface
 
         return $this;
     }
+
+    public function getUniqueIdentifiers(): array
+    {
+        return ['talkId' => $this->getCode()];
+    }
+
+    public function __toString()
+    {
+        return $this->getCode();
+    }
+
+    public function getData(): ?array
+    {
+        return $this->data;
+    }
+
+    public function setData(?array $data): static
+    {
+        $this->data = $data;
+
+        return $this;
+    }
+
+
 }

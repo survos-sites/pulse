@@ -102,6 +102,9 @@
             "tests/bootstrap.php"
         ]
     },
+    "spomky-labs/pwa-bundle": {
+        "version": "1.1.x-dev"
+    },
     "survos/api-grid-bundle": {
         "version": "1.5.182"
     },
@@ -131,6 +134,9 @@
         "version": "1.5.182"
     },
     "survos/maker-bundle": {
+        "version": "1.5.182"
+    },
+    "survos/pwa-extra-bundle": {
         "version": "1.5.182"
     },
     "survos/workflow-helper-bundle": {
@@ -262,6 +268,15 @@
         "files": [
             "config/packages/notifier.yaml"
         ]
+    },
+    "symfony/panther": {
+        "version": "2.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "1.0",
+            "ref": "292a3236e81f55b545b09b9954ab097248972ab3"
+        }
     },
     "symfony/phpunit-bridge": {
         "version": "7.0",

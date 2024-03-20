@@ -1,27 +1,106 @@
 {% extends "talk/base.html.twig" %}
 
-{% block body %}
-    <h1>Talk</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ talk.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ talk.title }}</td>
-            </tr>
-            <tr>
-                <th>Code</th>
-                <td>{{ talk.code }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-{% if is_granted('ROLE_ADMIN') %}
-    <a class="btn btn-primary" href="{{ path('talk_edit', talk.rp) }}">edit</a>
-    {{ include('talk/_delete_form.html.twig') }}
-{% endif %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://unpkg.com/htmx.org"></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/client-side-templates.js"></script>
+    <script src="https://unpkg.com/mustache@latest"></script>
+    <script type="module">
+        htmx.logAll();
+    </script>
 {% endblock %}
+
+{% block body %}
+
+
+    <h1>{{ talk.title }}</h1>
+    <i>{{ talk.reactions.count }} Reactions</i>
+{#        {{ block('reactions') }}#}
+
+    {% set _sc = 'add_reaction' %}
+
+    {{ form_start(form, {
+        attr: stimulus_controller(_sc).toArray()
+            |merge(stimulus_action(_sc, 'onSubmit').toArray())
+    }) }}
+    {{ form_widget(form) }}
+    <button class="btn btn-primary">{{ button_label|default('React!') }}</button>
+    <span {{ stimulus_target(_sc, 'message') }}>
+                .
+            </span>
+
+    {{ form_end(form) }}
+
+    {% if is_granted('ROLE_ADMIN') %}
+        <a class="btn btn-primary" href="{{ path('talk_edit', talk.rp) }}">edit</a>
+        {{ include('talk/_delete_form.html.twig') }}
+    {% endif %}
+
+    <h3>Twig</h3>
+    {% for reaction in talk.reactions %}
+        {% set _sc = 'reaction' %}
+        <li {{ stimulus_controller(_sc, {id: reaction.id}) }}>
+            <span {{ stimulus_target(_sc, 'message') }}>
+                .
+            </span>
+            {{ reaction.message }}
+            <button {{ stimulus_action(_sc, 'delete') }}>
+                DEL
+            </button>
+
+        </li>
+    {% endfor %}
+
+    <h3>JSTwig</h3>
+    <twig:jsTwig
+            id="content"
+            :caller="_self"
+            :apiUrl="apiUrl"
+    >
+        <twig:block name="content" id="content">
+            <ol>
+                <b>{{ data.code }}</b>
+                Title: {{ data.title }}
+                {% for reaction in data.reactions %}
+                    <li>
+                        {{ reaction.message }}
+                    </li>
+                {% endfor %}
+            </ol>
+        </twig:block>
+    </twig:jsTwig>
+{% endblock %}
+
+{% block client_side_test %}
+
+<div hx-ext="client-side-templates">
+    <button hx-get="https://jsonplaceholder.typicode.com/todos/1"
+            hx-swap="innerHTML"
+            hx-target="#content"
+            mustache-template="foo">
+        Click Me
+    </button>
+
+
+    <p id="content">Start</p>
+    {% verbatim %}
+        <template id="foo">
+            {{ userId }} {{ title }}
+        </template>
+    </div>
+    {% endverbatim %}
+    {#        <p> {% raw %}{{userID}}{% endraw %} and {% raw %}{{id}}{% endraw %} and {% raw %}{{title}}{% endraw %} and {% raw %}{{completed}}{% endraw %}</p> #}
+
+    {% endblock %}
+
+    {% block reactions %}
+        <div hx-get="{{ path('_talk_reactions', talk.rp) }}"
+             hx-ext="debug"
+             hx-target="this"
+             hx-trigger="load, every 3s"
+        >
+            {{ include('talk/_reactions.html.twig', {reactions: talk.reactions}) }}
+            reactions go here.
+
+        </div>
+    {% endblock %}

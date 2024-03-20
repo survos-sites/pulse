@@ -2,15 +2,30 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
 use App\Repository\ReactionRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Attribute\Groups;
 
 #[ORM\Entity(repositoryClass: ReactionRepository::class)]
+//#[Groups(['reaction.details'])]
+#[ApiResource(
+    operations: [
+        new Get(normalizationContext: ['groups' => ['reaction.read', 'rp', 'reaction.details']]),
+        new GetCollection(name: self::DOCTRINE_ROUTE),
+        new Delete()],
+    normalizationContext: ['groups' => ['talk.read', 'rp']]
+)]
 class Reaction
 {
+    public const DOCTRINE_ROUTE='reactions_doctrine';
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['reaction.read'])]
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'reactions')]
@@ -18,13 +33,21 @@ class Reaction
     private ?Talk $talk = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['reaction.read'])]
     private ?string $type = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['reaction.read'])]
     private ?string $message = null;
 
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTimeImmutable();
+
+    }
 
     public function getId(): ?int
     {

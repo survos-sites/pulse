@@ -1,0 +1,32 @@
+<h3>{{ reactions|length }} Reactions</h3>
+{% set serverTime = 'now' %}
+page published at {{ 'now'|date('m:s') }}
+<time data-controller="timeago"
+      data-timeago-add-suffix-value="true"
+      data-timeago-include-seconds-value="true"
+      data-timeago-refresh-interval-value="1000"
+      data-timeago-datetime-value="{{ serverTime|date('c') }}">
+    {{ serverTime | date("m/d/Y g:i:sA", "America/New_York") }}
+</time>.
+
+
+<table>
+    <tbody>
+    {% for reaction in reactions %}
+        <tr>
+            <td>
+                <time data-controller="timeago"
+                      data-timeago-add-suffix-value="true"
+                      data-timeago-include-seconds-value="true"
+                      data-timeago-refresh-interval-value="1000"
+                      data-timeago-datetime-value="{{ reaction.createdAt|date('c') }}">
+                    {{ serverTime | date("m/d/Y g:i:sA", "America/New_York") }}
+                </time>.
+            </td>
+            <td>
+                {{ reaction.message }}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
