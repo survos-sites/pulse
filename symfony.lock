@@ -102,6 +102,9 @@
             "tests/bootstrap.php"
         ]
     },
+    "pierstoval/smoke-testing": {
+        "version": "v1.0.0"
+    },
     "spomky-labs/pwa-bundle": {
         "version": "1.1.x-dev"
     },
@@ -129,6 +132,19 @@
     },
     "survos/core-bundle": {
         "version": "1.5.182"
+    },
+    "survos/crawler-bundle": {
+        "version": "1.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "1.5",
+            "ref": "d98d3a77f60f60a5a1fc49f2fb151e43abb54dfc"
+        },
+        "files": [
+            "config/packages/survos_crawler.yaml",
+            "config/routes/survos_crawler.php"
+        ]
     },
     "survos/inspection-bundle": {
         "version": "1.5.182"

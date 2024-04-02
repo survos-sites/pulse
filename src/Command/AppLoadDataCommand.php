@@ -43,7 +43,7 @@ final class AppLoadDataCommand extends InvokableServiceCommand
 
         $this->loadExisting();
         $user = $this->userRepository->findOneBy(['email' => 'tacman@gmail.com']);
-        assert($user, "run bin/load-admins.sh");
+        assert($user, "run bin/create-admins.sh");
         $fn = __DIR__ . '/../../assets/data/schedule.yaml';
         $events = Yaml::parseFile($fn)['events'];
         foreach ($events as $event) {

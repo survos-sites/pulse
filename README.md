@@ -16,9 +16,21 @@ The application in intentionally simple, as its primary goal is to demonstration
 * Stimulus
 * HTMX/HyperScript
 * PostgreSQL
+* Bootwatch/Sandstone
 
-## Authenication
+## Authentication
 
 Only speakers need to log in, to create and manage their talks. 
 
+## 
 
+clone, then
+
+
+```bash
+bin/console d:d:c && bin/console d:m:m -n
+
+bin/create-admins.sh
+bin/console app:load-data
+
+```

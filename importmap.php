@@ -79,39 +79,39 @@ return [
         'type' => 'css',
     ],
     'datatables.net-plugins/i18n/en-GB.mjs' => [
-        'version' => '1.13.6',
+        'version' => '2.0.2',
     ],
     'datatables.net-bs5' => [
-        'version' => '1.13.11',
+        'version' => '2.0.3',
     ],
     'jquery' => [
         'version' => '3.7.1',
     ],
     'datatables.net' => [
-        'version' => '1.13.10',
+        'version' => '2.0.3',
     ],
     'datatables.net-bs5/css/dataTables.bootstrap5.min.css' => [
-        'version' => '1.13.11',
+        'version' => '2.0.3',
         'type' => 'css',
     ],
     'datatables.net-buttons-bs5' => [
-        'version' => '2.4.3',
+        'version' => '3.0.1',
     ],
     'datatables.net-buttons' => [
-        'version' => '2.4.3',
+        'version' => '3.0.1',
     ],
     'datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css' => [
-        'version' => '2.4.3',
+        'version' => '3.0.1',
         'type' => 'css',
     ],
     'datatables.net-responsive-bs5' => [
-        'version' => '2.5.1',
+        'version' => '3.0.1',
     ],
     'datatables.net-responsive' => [
-        'version' => '2.5.1',
+        'version' => '3.0.1',
     ],
     'datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css' => [
-        'version' => '2.5.1',
+        'version' => '3.0.1',
         'type' => 'css',
     ],
     'datatables.net-scroller-bs5' => [
@@ -145,13 +145,13 @@ return [
         'type' => 'css',
     ],
     'datatables.net-select-bs5' => [
-        'version' => '1.7.1',
+        'version' => '2.0.0',
     ],
     'datatables.net-select' => [
-        'version' => '1.7.1',
+        'version' => '2.0.0',
     ],
     'datatables.net-select-bs5/css/select.bootstrap5.min.css' => [
-        'version' => '1.7.1',
+        'version' => '2.0.0',
         'type' => 'css',
     ],
     'htmx.org' => [
