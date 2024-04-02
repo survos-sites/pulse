@@ -31,3 +31,9 @@ window.htmx = htmx; // not mandatory, use to access htmx in any page
 // htmx.logAll();
 
 // import './db.js';
+import Masonry from 'masonry-layout';
+// https://getbootstrap.com/docs/5.0/examples/masonry/
+var msnry = new Masonry( '.grid', {
+    columnWidth: 200
+    // options
+});

@@ -7,22 +7,26 @@ import { Controller } from '@hotwired/stimulus';
 /* stimulusFetch: 'lazy' */
 export default class extends Controller {
     static targets = ['message'];
+    static outlets = ['rlist'];
     static values = {
         id: Number
     }
     // ...
     connect() {
-        console.log('hello from ' + this.identifier);
-        this.messageTarget.innerHTML = this.identifier + ' connected.';
-
+        console.log('outlets?');
         super.connect();
     }
 
     delete(event) {
+        // https://github.com/symfony/symfony/issues/50715
         fetch('/api/reactions/' + this.idValue, { method: 'DELETE' })
-            .then(() => this.element.innerHTML = 'Delete from db successful');
+            .then(() => this.element.innerHTML = 'Delete from db successful')
+            .catch(() => this.element.innerHTML = 'Error deleting');
 
-        console.log('delete this');
+        console.log('delete this ', this.rlistOutlets.length);
+        this.rlistOutlets.forEach(
+            rlist => rlist.increment(-1));
+        // this.rlistOutlet.increment(-1);
         // this.element.remove();
 
     }

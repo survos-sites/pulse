@@ -6,16 +6,14 @@ import { Controller } from '@hotwired/stimulus';
 */
 /* stimulusFetch: 'lazy' */
 export default class extends Controller {
-    static targets = ['message']
+
     // ...
     connect() {
-        console.log('hello from ' + this.identifier);
-        this.messageTarget.innerHTML = this.identifier + ' connected.';
         super.connect();
     }
 
-    onSubmit() {
-
+    alert(message) {
+        this.element.innerHTML=message;
+        console.error(message);
     }
-
 }

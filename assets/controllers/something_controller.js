@@ -6,16 +6,17 @@ import { Controller } from '@hotwired/stimulus';
 */
 /* stimulusFetch: 'lazy' */
 export default class extends Controller {
-    static targets = ['message']
+    static outlets = ['alert']
     // ...
     connect() {
-        console.log('hello from ' + this.identifier);
-        this.messageTarget.innerHTML = this.identifier + ' connected.';
         super.connect();
+        console.log(this.identifier, this.alertOutlets, this.hasAlertOutlet);
     }
 
-    onSubmit() {
+    clicked() {
+        this.alertOutlet.alert('hi from ' + this.identifier);
+        console.log(this.identifier + ' clicked');
+        this.alertOutlets.forEach(alertOutlet => alertOutlet.alert('hola!'));
 
     }
-
 }
