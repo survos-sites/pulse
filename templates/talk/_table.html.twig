@@ -16,11 +16,15 @@
             <a href="{{ path('talk_show', talk.rp) }}">
                 <span class="fas fa-eye"></span>
                 <i class="bi bi-info"></i>
+                show
             </a>
+            {% if is_granted('ROLE_ADMIN') %}
             <a href="{{ path('talk_edit', talk.rp) }}">
                 <span class="fas fa-edit"></span>
                 <i class="bi bi-pencil"></i>
+                edit
             </a>
+            {% endif %}
         </td>
 
                     <td>{{ talk.id }}</td>

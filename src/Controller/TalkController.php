@@ -21,11 +21,13 @@ use Symfony\Component\Workflow\WorkflowInterface;
 #[Route('/talk/{talkId}', name: 'talk_')]
 class TalkController extends AbstractController
 {
+    public const SHOW = 'show';
+    public const EDIT = 'edit';
     public function __construct(private EntityManagerInterface $entityManager)
     {
     }
 
-    #[Route('/', name: 'show', options: ['expose' => true])]
+    #[Route('/', name: self::SHOW, options: ['expose' => true])]
     public function show(Request $request,
                          IriConverterInterface $iriConverter,
                          Talk $talk): Response
@@ -51,7 +53,7 @@ class TalkController extends AbstractController
         ]);
     }
 
-    #[Route('/_reactions', name: '_talk_reactions', options: ['expose' => true])]
+    #[Route('/_reactions', name: '_reactions', options: ['expose' => true])]
     #[Template('talk/_reactions.html.twig')]
     public function reactions(Talk $talk): Response
     {
@@ -81,7 +83,7 @@ class TalkController extends AbstractController
         ]);
     }
 
-    #[Route('/delete', name: 'delete', methods: ['DELETE'])]
+    #[Route('/delete', name: 'delete', methods: [Request::METHOD_DELETE])]
     public function delete(Request $request, Talk $talk): Response
     {
         // hard-coded to getId, should be get parameter of uniqueIdentifiers()

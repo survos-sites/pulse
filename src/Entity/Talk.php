@@ -29,11 +29,17 @@ class Talk implements RouteParametersInterface, \Stringable
 {
     const MEILI_ROUTE='meili_talk';
     use RouteParametersTrait;
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[ORM\GeneratedValue()]
     #[Groups(['talk.read'])]
+    #[ORM\Id]
     private ?int $id = null;
+
+    public function setId(?int $id): self
+    {
+        $this->id = $id;
+        return $this;
+    }
 
     #[ORM\Column(length: 255)]
     #[Groups(['talk.read'])]

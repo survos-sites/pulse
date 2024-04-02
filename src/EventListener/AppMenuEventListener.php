@@ -40,22 +40,27 @@ final class AppMenuEventListener implements KnpMenuHelperInterface
         $menu = $event->getMenu();
         $options = $event->getOptions();
         $this->add($menu, 'talk_browse');
-        $this->add($menu, 'api_doc');
         $this->add($menu, 'talk_index');
+        if ($this->isEnv('test')) {
+            $this->add($menu, 'talk_symfony_crud_index');
+        }
 
+        if ($this->isGranted('ROLE_ADMIN')) {
+            $subMenu = $this->addSubmenu($menu, 'Survos');
+            $this->add($subMenu, 'survos_commands');
+            $this->add($subMenu, 'survos_crawler_results');
+            $this->add($menu, 'api_doc');
 
-        $this->add($menu, 'survos_commands');
-        $this->add($menu, 'survos_crawler_results');
+            $nestedMenu = $this->addSubmenu($menu, 'Credits');
+            foreach (['bundles', 'javascript'] as $type) {
+                // $this->addMenuItem($nestedMenu, ['route' => 'survos_base_credits', 'rp' => ['type' => $type], 'label' => ucfirst($type)]);
+                $this->addMenuItem($nestedMenu, ['uri' => "#$type", 'label' => ucfirst($type)]);
+            }
+        }
 
         //        $this->add($menu, 'app_homepage');
         // for nested menus, don't add a route, just a label, then use it for the argument to addMenuItem
 
-        $nestedMenu = $this->addSubmenu($menu, 'Credits');
-
-        foreach (['bundles', 'javascript'] as $type) {
-            // $this->addMenuItem($nestedMenu, ['route' => 'survos_base_credits', 'rp' => ['type' => $type], 'label' => ucfirst($type)]);
-            $this->addMenuItem($nestedMenu, ['uri' => "#$type", 'label' => ucfirst($type)]);
-        }
     }
 
     public function sidebarMenu(KnpMenuEvent $event): void

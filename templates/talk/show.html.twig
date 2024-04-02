@@ -20,15 +20,21 @@
 {% endblock %}
 
 {% block body %}
+    {{ talk }}
 <ol>
     <li class="message" {{ stimulus_controller('alert') }}></li>
     <li class="message" {{ stimulus_controller('alert') }}></li>
 </ol>
 
+    {# this is mostly for testing #}
+    {% if app.environment == 'test' %}
+        <a href="{{ path('talk__reactions', talk.rp) }}">_reactions</a>
+    {% endif %}
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('talk_edit', talk.rp) }}">Edit (admin)</a>
+    {% endif %}
+
     {% set _sc = 'something' %}
-    {{ stimulus_controller(_sc,
-        controllerOutlets = { 'alert': '.message' }
-    ) }}
     <button {{ stimulus_controller(_sc,
         controllerOutlets = { 'alert': '.message' }
     ) }}
