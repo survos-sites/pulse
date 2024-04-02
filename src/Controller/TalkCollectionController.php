@@ -36,13 +36,13 @@ class TalkCollectionController extends AbstractController
     {
         $class = Talk::class;
         $shortClass = 'Talk';
-        $useMeili = 'app_browse' == $request->get('_route');
+//        $useMeili = 'app_browse' == $request->get('_route');
         // this should be from inspection bundle!
-        $apiCall = $useMeili
-        ? '/api/meili/'.$shortClass
-        : $this->iriConverter->getIriFromResource($class, operation: new GetCollection(),
-            context: $context ?? [])
-        ;
+//        $apiCall = $useMeili
+//        ? '/api/meili/'.$shortClass
+//        : $this->iriConverter->getIriFromResource($class, operation: new GetCollection(),
+//            context: $context ?? [])
+//        ;
 
         $this->apiGridComponent->setClass($class);
         $c = $this->apiGridComponent->getDefaultColumns();
@@ -50,10 +50,9 @@ class TalkCollectionController extends AbstractController
         $useMeili = 'talk_browse' == $request->get('_route');
         // this should be from inspection bundle!
         $apiCall = $useMeili
-        ? '/api/meili/'.$shortClass
-        : $this->iriConverter->getIriFromResource($class, operation: new GetCollection(),
-            context: $context ?? [])
-        ;
+            ? '/api/meili/' . $shortClass
+            : $this->iriConverter->getIriFromResource($class, operation: new GetCollection(), context: []);
+//            context: $context ?? [])
 
         return $this->render('talk/browse.html.twig', [
             'class' => $class,

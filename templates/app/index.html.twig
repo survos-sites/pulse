@@ -15,6 +15,11 @@
         <div class="xxsgrid-item col-sm-6  col-lg-4">
             {% with { talk: talk } %}
                 <twig:card :title="talk.title">
+                    {% block body %}
+                                <a href="{{ path('talk_show', talk.rp) }}" class="card-link">
+                                    Details
+                                </a>
+                    {% endblock %}
 
                 </twig:card>
 {#                {{ block('card') }}#}

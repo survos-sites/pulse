@@ -18,28 +18,14 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Workflow\WorkflowInterface;
 
-#[Route('/talk/{talkId}')]
+#[Route('/talk/{talkId}', name: 'talk_')]
 class TalkController extends AbstractController
 {
     public function __construct(private EntityManagerInterface $entityManager)
     {
     }
 
-    // there must be a way to do this within the bundle, a separate route!
-    #[Route(path: '/transition/{transition}', name: 'talk_transition')]
-    public function transition(Request $request, WorkflowInterface $talkStateMachine, string $transition, Talk $talk): Response
-    {
-        if ('_' === $transition) {
-            $transition = $request->request->get('transition'); // the _ is a hack to display the form, @todo: cleanup
-        }
-
-        $this->handleTransitionButtons($talkStateMachine, $transition, $talk);
-        $this->entityManager->flush(); // to save the marking
-
-        return $this->redirectToRoute('talk_show', $talk->getRP());
-    }
-
-    #[Route('/', name: 'talk_show', options: ['expose' => true])]
+    #[Route('/', name: 'show', options: ['expose' => true])]
     public function show(Request $request,
                          IriConverterInterface $iriConverter,
                          Talk $talk): Response
@@ -77,7 +63,7 @@ class TalkController extends AbstractController
 
     }
 
-    #[Route('/edit', name: 'talk_edit', options: ['expose' => true])]
+    #[Route('/edit', name: 'edit', options: ['expose' => true])]
     public function edit(Request $request, Talk $talk): Response
     {
         $form = $this->createForm(TalkType::class, $talk);
@@ -95,7 +81,7 @@ class TalkController extends AbstractController
         ]);
     }
 
-    #[Route('/delete', name: 'talk_delete', methods: ['DELETE'])]
+    #[Route('/delete', name: 'delete', methods: ['DELETE'])]
     public function delete(Request $request, Talk $talk): Response
     {
         // hard-coded to getId, should be get parameter of uniqueIdentifiers()

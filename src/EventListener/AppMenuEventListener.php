@@ -39,10 +39,13 @@ final class AppMenuEventListener implements KnpMenuHelperInterface
     {
         $menu = $event->getMenu();
         $options = $event->getOptions();
-        $this->add($menu, 'survos_commands');
         $this->add($menu, 'talk_browse');
         $this->add($menu, 'api_doc');
         $this->add($menu, 'talk_index');
+
+
+        $this->add($menu, 'survos_commands');
+        $this->add($menu, 'survos_crawler_results');
 
         //        $this->add($menu, 'app_homepage');
         // for nested menus, don't add a route, just a label, then use it for the argument to addMenuItem
