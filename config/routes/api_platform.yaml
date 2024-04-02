@@ -1,4 +1,5 @@
 api_platform:
+    stateless: false
     resource: .
     type: api_platform
     prefix: /api

@@ -16,7 +16,8 @@ use Symfony\Component\Serializer\Attribute\Groups;
     operations: [
         new Get(normalizationContext: ['groups' => ['reaction.read', 'rp', 'reaction.details']]),
         new GetCollection(name: self::DOCTRINE_ROUTE),
-        new Delete()],
+        new Delete()
+    ],
     normalizationContext: ['groups' => ['talk.read', 'rp']]
 )]
 class Reaction

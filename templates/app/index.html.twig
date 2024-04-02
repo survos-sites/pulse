@@ -9,7 +9,20 @@
 
 {% block body %}
     <div class="container-fluid">
-        {{ block('slides') }}
+
+<div class="row" data-masonry='{"percentPosition": true }'>
+    {% for talk in talks %}
+        <div class="xxsgrid-item col-sm-6  col-lg-4">
+            {% with { talk: talk } %}
+                <twig:card :title="talk.title">
+
+                </twig:card>
+{#                {{ block('card') }}#}
+            {% endwith %}
+        </div>
+    {% endfor %}
+</div>
+{#        {{ block('slides') }}#}
     </div>
 {% endblock %}
 {% block slides %}
@@ -143,3 +156,4 @@
         </template>
 
 {% endblock %}
+

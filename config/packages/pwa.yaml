@@ -27,11 +27,19 @@ pwa:
             preferred_width: 280
         widgets: []
     serviceworker:
-        enabled: false
+        enabled: true
         src: "sw.js"
         skip_waiting: true
         workbox:
-#            page_caches:
+            resource_caches:
+                - cache_name: app_pages
+                  match_callback: '/planet\/\d+/'
+                  strategy: StaleWhileRevalidate # 'CacheOnly' # ??
+                  broadcast: true
+                  broadcast_headers:
+                  preload_urls:
+                      - 'app_homepage'
+
 #                - regex: '\/pages\/.*$'
 #                  cache_name: 'static-pages'
 #                  strategy: 'cacheFirst'

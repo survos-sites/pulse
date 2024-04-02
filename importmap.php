@@ -254,4 +254,28 @@ return [
         'version' => '5.3.3',
         'type' => 'css',
     ],
+    'masonry' => [
+        'version' => '0.0.2',
+    ],
+    'masonry-layout' => [
+        'version' => '4.2.2',
+    ],
+    'outlayer' => [
+        'version' => '2.1.1',
+    ],
+    'get-size' => [
+        'version' => '2.0.3',
+    ],
+    'ev-emitter' => [
+        'version' => '1.1.1',
+    ],
+    'fizzy-ui-utils' => [
+        'version' => '2.0.7',
+    ],
+    'desandro-matches-selector' => [
+        'version' => '2.0.2',
+    ],
+    'stimulus-use' => [
+        'version' => '0.52.2',
+    ],
 ];
