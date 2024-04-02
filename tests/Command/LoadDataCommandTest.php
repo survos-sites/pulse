@@ -17,8 +17,8 @@ class LoadDataCommandTest extends KernelTestCase
         $command = $application->find('app:load-data');
         $commandTester = new CommandTester($command);
         $commandTester->execute([
-            '--limit 3',
-            '--reset'
+            '--limit' => 3,
+            '--reset' => true
             // pass arguments to the helper
 //            'username' => 'Wouter',
 

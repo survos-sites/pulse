@@ -2,6 +2,7 @@
 
 namespace App\Command;
 
+use App\Entity\Reaction;
 use App\Entity\Talk;
 use App\Repository\TalkRepository;
 use App\Repository\UserRepository;
@@ -69,6 +70,19 @@ final class AppLoadDataCommand extends InvokableServiceCommand
                     $talk->setData($talkData);
                     // @todo: update the talk with speakers, time, etc.
                     $talk->setTitle($talkData['name']);
+                    if ($count == 1) {
+                        $reaction = (new Reaction())
+                            ->setType('message')
+                            ->setMessage("Awesome!")
+                            ->setCreatedAt(new \DateTimeImmutable())
+                            ;
+                        $x = $reaction->getCreatedAt();
+                        $id = $reaction->getId();
+                        $talk->addReaction($reaction);
+                        $talk->addReaction($reaction); // duplicate, but we don't check
+                        $talk->removeReaction($reaction);
+
+                    }
 
                     if ($limit && ($count >= $limit)) {
                         break 2;

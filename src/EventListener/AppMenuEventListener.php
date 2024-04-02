@@ -13,7 +13,6 @@ use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 #[AsEventListener(event: KnpMenuEvent::NAVBAR_MENU, method: 'navbarMenu')]
 // #[AsEventListener(event: KnpMenuEvent::NAVBAR_MENU2, method: 'navbarMenu')]
-#[AsEventListener(event: KnpMenuEvent::SIDEBAR_MENU, method: 'sidebarMenu')]
 #[AsEventListener(event: KnpMenuEvent::PAGE_MENU, method: 'pageMenu')]
 #[AsEventListener(event: KnpMenuEvent::FOOTER_MENU, method: 'footerMenu')]
 #[AsEventListener(event: KnpMenuEvent::AUTH_MENU, method: 'appAuthMenu')]
@@ -41,7 +40,7 @@ final class AppMenuEventListener implements KnpMenuHelperInterface
         $options = $event->getOptions();
         $this->add($menu, 'talk_browse');
         $this->add($menu, 'talk_index');
-        if ($this->isEnv('test')) {
+        if (!$this->isEnv('prod')) {
             $this->add($menu, 'talk_symfony_crud_index');
         }
 
@@ -61,12 +60,6 @@ final class AppMenuEventListener implements KnpMenuHelperInterface
         //        $this->add($menu, 'app_homepage');
         // for nested menus, don't add a route, just a label, then use it for the argument to addMenuItem
 
-    }
-
-    public function sidebarMenu(KnpMenuEvent $event): void
-    {
-        $menu = $event->getMenu();
-        $options = $event->getOptions();
     }
 
     public function footerMenu(KnpMenuEvent $event): void
