@@ -1,3 +1,8 @@
+# config/routes.yaml
+app_logout:
+    path: /logout
+    methods: GET
+
 controllers:
     resource:
         path: ../src/Controller/
