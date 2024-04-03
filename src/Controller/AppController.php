@@ -12,6 +12,7 @@ class AppController extends AbstractController
     #[Route('/', name: 'app_homepage')]
     public function index(TalkRepository $talkRepository): Response
     {
+//        return new Response($this->getUser() ? $this->getUser()->getUserIdentifier() : 'not logged in');
         return $this->render('app/index.html.twig', [
             'controller_name' => 'AppController',
             'talks' => $talkRepository->findAll()
