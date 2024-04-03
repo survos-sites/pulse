@@ -4,9 +4,9 @@
     <thead>
     <tr>
         <th>actions</th>
-                    <th>Id</th>
                     <th>Title</th>
                     <th>Code</th>
+                    <th>Reactions</th>
             </tr>
     </thead>
     <tbody>
@@ -27,9 +27,9 @@
             {% endif %}
         </td>
 
-                    <td>{{ talk.id }}</td>
                     <td>{{ talk.title }}</td>
                     <td>{{ talk.code }}</td>
+                    <td>{{ talk.reactions|length }}</td>
             </tr>
     {% else %}
     <tr>
