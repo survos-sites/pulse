@@ -43,6 +43,9 @@ jobs:
 #        touch data/database.sqlite
     -
       name: Install importmap assets
+      run:  php bin/console importmap:install -e test
+    -
+      name: Compile  assets
       run:  php bin/console asset-map:compile -e test
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
