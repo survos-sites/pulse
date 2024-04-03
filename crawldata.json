@@ -108,18 +108,6 @@
             "foundOn": "/",
             "memory": null
         },
-        "/talk/Cartographing-Symfony/": {
-            "path": "/talk/Cartographing-Symfony/",
-            "seen": true,
-            "depth": 1,
-            "linkStatus": null,
-            "username": null,
-            "route": "talk_show",
-            "rp": null,
-            "statusCode": 200,
-            "foundOn": "/",
-            "memory": null
-        },
         "/talkstalk/new": {
             "path": "/talkstalk/new",
             "seen": true,
@@ -130,54 +118,6 @@
             "rp": null,
             "statusCode": 200,
             "foundOn": "/talks/symfony_crud_index",
-            "memory": null
-        },
-        "/talk/Opening-Welcome-session/_reactions": {
-            "path": "/talk/Opening-Welcome-session/_reactions",
-            "seen": true,
-            "depth": 2,
-            "linkStatus": null,
-            "username": null,
-            "route": "talk__reactions",
-            "rp": null,
-            "statusCode": 200,
-            "foundOn": "/talk/Opening-Welcome-session/",
-            "memory": null
-        },
-        "/talk/Keynote/_reactions": {
-            "path": "/talk/Keynote/_reactions",
-            "seen": true,
-            "depth": 2,
-            "linkStatus": null,
-            "username": null,
-            "route": "talk__reactions",
-            "rp": null,
-            "statusCode": 200,
-            "foundOn": "/talk/Keynote/",
-            "memory": null
-        },
-        "/talk/Symfony-Forms-Advanced-Use-Cases/_reactions": {
-            "path": "/talk/Symfony-Forms-Advanced-Use-Cases/_reactions",
-            "seen": true,
-            "depth": 2,
-            "linkStatus": null,
-            "username": null,
-            "route": "talk__reactions",
-            "rp": null,
-            "statusCode": 200,
-            "foundOn": "/talk/Symfony-Forms-Advanced-Use-Cases/",
-            "memory": null
-        },
-        "/talk/Cartographing-Symfony/_reactions": {
-            "path": "/talk/Cartographing-Symfony/_reactions",
-            "seen": true,
-            "depth": 2,
-            "linkStatus": null,
-            "username": null,
-            "route": "talk__reactions",
-            "rp": null,
-            "statusCode": 200,
-            "foundOn": "/talk/Cartographing-Symfony/",
             "memory": null
         }
     },
@@ -278,18 +218,6 @@
             "foundOn": "/",
             "memory": null
         },
-        "/talk/Cartographing-Symfony/": {
-            "path": "/talk/Cartographing-Symfony/",
-            "seen": true,
-            "depth": 1,
-            "linkStatus": null,
-            "username": "tacman@gmail.com",
-            "route": "talk_show",
-            "rp": null,
-            "statusCode": 200,
-            "foundOn": "/",
-            "memory": null
-        },
         "/talkstalk/new": {
             "path": "/talkstalk/new",
             "seen": true,
@@ -300,54 +228,6 @@
             "rp": null,
             "statusCode": 200,
             "foundOn": "/talks/symfony_crud_index",
-            "memory": null
-        },
-        "/talk/Opening-Welcome-session/_reactions": {
-            "path": "/talk/Opening-Welcome-session/_reactions",
-            "seen": true,
-            "depth": 2,
-            "linkStatus": null,
-            "username": "tacman@gmail.com",
-            "route": "talk__reactions",
-            "rp": null,
-            "statusCode": 200,
-            "foundOn": "/talk/Opening-Welcome-session/",
-            "memory": null
-        },
-        "/talk/Keynote/_reactions": {
-            "path": "/talk/Keynote/_reactions",
-            "seen": true,
-            "depth": 2,
-            "linkStatus": null,
-            "username": "tacman@gmail.com",
-            "route": "talk__reactions",
-            "rp": null,
-            "statusCode": 200,
-            "foundOn": "/talk/Keynote/",
-            "memory": null
-        },
-        "/talk/Symfony-Forms-Advanced-Use-Cases/_reactions": {
-            "path": "/talk/Symfony-Forms-Advanced-Use-Cases/_reactions",
-            "seen": true,
-            "depth": 2,
-            "linkStatus": null,
-            "username": "tacman@gmail.com",
-            "route": "talk__reactions",
-            "rp": null,
-            "statusCode": 200,
-            "foundOn": "/talk/Symfony-Forms-Advanced-Use-Cases/",
-            "memory": null
-        },
-        "/talk/Cartographing-Symfony/_reactions": {
-            "path": "/talk/Cartographing-Symfony/_reactions",
-            "seen": true,
-            "depth": 2,
-            "linkStatus": null,
-            "username": "tacman@gmail.com",
-            "route": "talk__reactions",
-            "rp": null,
-            "statusCode": 200,
-            "foundOn": "/talk/Cartographing-Symfony/",
             "memory": null
         }
     },
@@ -420,7 +300,7 @@
             "username": "tt@survos.com",
             "route": "survos_crawler_results",
             "rp": null,
-            "statusCode": 404,
+            "statusCode": 200,
             "foundOn": "/",
             "memory": null
         },
@@ -484,18 +364,6 @@
             "foundOn": "/",
             "memory": null
         },
-        "/talk/Cartographing-Symfony/": {
-            "path": "/talk/Cartographing-Symfony/",
-            "seen": true,
-            "depth": 1,
-            "linkStatus": null,
-            "username": "tt@survos.com",
-            "route": "talk_show",
-            "rp": null,
-            "statusCode": 200,
-            "foundOn": "/",
-            "memory": null
-        },
         "/talk/Opening-Welcome-session/edit": {
             "path": "/talk/Opening-Welcome-session/edit",
             "seen": true,
@@ -522,18 +390,6 @@
         },
         "/talk/Symfony-Forms-Advanced-Use-Cases/edit": {
             "path": "/talk/Symfony-Forms-Advanced-Use-Cases/edit",
-            "seen": true,
-            "depth": 2,
-            "linkStatus": null,
-            "username": "tt@survos.com",
-            "route": "talk_edit",
-            "rp": null,
-            "statusCode": 200,
-            "foundOn": "/talks/symfony_crud_index",
-            "memory": null
-        },
-        "/talk/Cartographing-Symfony/edit": {
-            "path": "/talk/Cartographing-Symfony/edit",
             "seen": true,
             "depth": 2,
             "linkStatus": null,
@@ -580,6 +436,30 @@
             "foundOn": "/admin/commands",
             "memory": null
         },
+        "/login": {
+            "path": "/login",
+            "seen": true,
+            "depth": 2,
+            "linkStatus": null,
+            "username": "tt@survos.com",
+            "route": "app_login",
+            "rp": null,
+            "statusCode": 200,
+            "foundOn": "/admin/crawler-results",
+            "memory": null
+        },
+        "/register": {
+            "path": "/register",
+            "seen": true,
+            "depth": 2,
+            "linkStatus": null,
+            "username": "tt@survos.com",
+            "route": "app_register",
+            "rp": null,
+            "statusCode": 200,
+            "foundOn": "/admin/crawler-results",
+            "memory": null
+        },
         "/talk/Opening-Welcome-session/_reactions": {
             "path": "/talk/Opening-Welcome-session/_reactions",
             "seen": true,
@@ -589,7 +469,7 @@
             "route": "talk__reactions",
             "rp": null,
             "statusCode": 200,
-            "foundOn": "/talk/Opening-Welcome-session/",
+            "foundOn": "/admin/crawler-results",
             "memory": null
         },
         "/talk/Keynote/_reactions": {
@@ -601,7 +481,7 @@
             "route": "talk__reactions",
             "rp": null,
             "statusCode": 200,
-            "foundOn": "/talk/Keynote/",
+            "foundOn": "/admin/crawler-results",
             "memory": null
         },
         "/talk/Symfony-Forms-Advanced-Use-Cases/_reactions": {
@@ -613,19 +493,7 @@
             "route": "talk__reactions",
             "rp": null,
             "statusCode": 200,
-            "foundOn": "/talk/Symfony-Forms-Advanced-Use-Cases/",
-            "memory": null
-        },
-        "/talk/Cartographing-Symfony/_reactions": {
-            "path": "/talk/Cartographing-Symfony/_reactions",
-            "seen": true,
-            "depth": 2,
-            "linkStatus": null,
-            "username": "tt@survos.com",
-            "route": "talk__reactions",
-            "rp": null,
-            "statusCode": 200,
-            "foundOn": "/talk/Cartographing-Symfony/",
+            "foundOn": "/admin/crawler-results",
             "memory": null
         }
     }

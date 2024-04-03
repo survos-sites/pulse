@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <!-- {{ user.id }} -->
+    <h1>{{ user.email }}</h1>
+
+    {{ user.isVerified ? 'Verified!' }}
+
+    {% for talk in user.talks  %}
+        <li>
+            {{ talk.title }}
+        </li>
+    {% endfor %}
+{% endblock %}
