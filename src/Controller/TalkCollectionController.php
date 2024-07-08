@@ -11,7 +11,6 @@ use App\Form\TalkType;
 use App\Repository\TalkRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Survos\ApiGrid\Components\ApiGridComponent;
-use Survos\WorkflowBundle\Traits\HandleTransitionsTrait;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,7 +20,6 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/talks')]
 class TalkCollectionController extends AbstractController
 {
-    use HandleTransitionsTrait;
 
     public function __construct(
         private EntityManagerInterface $entityManager,
