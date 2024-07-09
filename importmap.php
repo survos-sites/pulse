@@ -155,7 +155,7 @@ return [
         'type' => 'css',
     ],
     'htmx.org' => [
-        'version' => '1.9.10',
+        'version' => '2.0',
     ],
     'stimulus-timeago' => [
         'version' => '4.1.0',

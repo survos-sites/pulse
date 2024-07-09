@@ -26,6 +26,9 @@
     <li class="message" {{ stimulus_controller('alert') }}></li>
 </ol>
 
+    <h1>Auto-update</h1>
+    {{ block('reactions') }}
+
     {# this is mostly for testing #}
     {% if app.environment == 'test' %}
         <a href="{{ path('talk__reactions', talk.rp) }}">_reactions</a>
@@ -114,11 +117,6 @@
 
 {% block client_side_test %}
 
-
-
-
-
-
 <div hx-ext="client-side-templates">
     <button hx-get="https://jsonplaceholder.typicode.com/todos/1"
             hx-swap="innerHTML"
@@ -140,7 +138,7 @@
     {% endblock %}
 
     {% block reactions %}
-        <div hx-get="{{ path('_talk_reactions', talk.rp) }}"
+        <div hx-get="{{ path('talk__reactions', talk.rp) }}"
              hx-ext="debug"
              hx-target="this"
              hx-trigger="load, every 3s"
