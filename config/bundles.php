@@ -26,7 +26,6 @@ return [
     Survos\CommandBundle\SurvosCommandBundle::class => ['all' => true],
     Survos\InspectionBundle\SurvosInspectionBundle::class => ['all' => true],
     Survos\ApiGrid\SurvosApiGridBundle::class => ['all' => true],
-    Survos\WorkflowBundle\SurvosWorkflowBundle::class => ['all' => true],
     FOS\JsRoutingBundle\FOSJsRoutingBundle::class => ['all' => true],
     SpomkyLabs\PwaBundle\SpomkyLabsPwaBundle::class => ['all' => true],
     Survos\PwaExtraBundle\SurvosPwaExtraBundle::class => ['all' => true],
