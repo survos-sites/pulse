@@ -10,11 +10,14 @@ export default class extends Controller {
     static values = {
         reactionCount: Number,
     }
-    static metaNames = ['userId', 'admin', 'email', 'snake_case_name']
+    // https://github.com/stimulus-use/stimulus-use/blob/main/docs/use-meta.md
+    static metaNames = ['userId', 'description']
 
     connect() {
         super.connect();
         useMeta(this);
+        console.log(this.descriptionMeta);
+        console.log(this['userIdMeta']);
         console.log('hello from ' + this.identifier + ' starting with ' + this.reactionCountValue);
         this.updateCount(this.reactionCountValue);
     }

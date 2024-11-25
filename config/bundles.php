@@ -31,4 +31,6 @@ return [
     Survos\PwaExtraBundle\SurvosPwaExtraBundle::class => ['all' => true],
     Survos\CrawlerBundle\SurvosCrawlerBundle::class => ['all' => true],
     Pierstoval\SmokeTesting\SmokeTestingBundle::class => ['dev' => true, 'test' => true],
+    Symfony\UX\Icons\UXIconsBundle::class => ['all' => true],
+    Survos\WorkflowBundle\SurvosWorkflowBundle::class => ['all' => true],
 ];

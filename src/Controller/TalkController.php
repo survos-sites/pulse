@@ -15,6 +15,7 @@ use Symfony\Bridge\Twig\Attribute\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Attribute\MapQueryParameter;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Workflow\WorkflowInterface;
 
@@ -55,12 +56,18 @@ class TalkController extends AbstractController
 
     #[Route('/_reactions', name: '_reactions', options: ['expose' => true])]
     #[Template('talk/_reactions.html.twig')]
-    public function reactions(Talk $talk): Response
+//    #[Template(new Expression(
+//        '"ROLE_ADMIN" in role_names or (is_authenticated() and user.isSuperAdmin()) or (request.query.get("admin_view")' ? 'admin/talk.html.twig' : 'visitor/talk.html.twig',
+//    ))]
+    public function reactions(Talk $talk,
+        #[MapQueryParameter()] bool $embedded = false,
+    ): Response|array
     {
-        return $this->render('talk/_reactions.html.twig', [
-            'reactions' => $talk->getReactions()
-        ]);
-        return ['reactions' => $talk->getReactions()];
+        return $embedded
+            ? $this->render('talk/_reactions.html.twig', [
+                'reactions' => $talk->getReactions()
+            ])
+            : ['reactions' => $talk->getReactions()];
 
 
     }

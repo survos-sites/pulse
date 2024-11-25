@@ -1,32 +1,16 @@
 {% extends "talk/base.html.twig" %}
 
+{% block description "Testing meta tags, use-meta " ~ talk.title %}
 {% block meta %}
-    {{ parent() }}
-        <meta name="userId" content="12345678">
-        <meta name="admin" content="true">
-        <meta name="email" content="joe@doe.com">
-        <meta name="snake_case_name" content="are camelized">
-
-{% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-    <script src="https://unpkg.com/htmx.org"></script>
-    <script src="https://unpkg.com/htmx.org/dist/ext/client-side-templates.js"></script>
-    <script src="https://unpkg.com/mustache@latest"></script>
-    <script type="module">
-        htmx.logAll();
-    </script>
-{% endblock %}
+        {{ parent() }}
+            <meta name="userId" content="12345678">
+    {% endblock %}
 
 {% block body %}
-    {{ talk }}
-<ol>
-    <li class="message" {{ stimulus_controller('alert') }}></li>
-    <li class="message" {{ stimulus_controller('alert') }}></li>
-</ol>
+    <h1>
+        {{ talk.title }}
+    </h1>
 
-    <h1>Auto-update</h1>
     {{ block('reactions') }}
 
     {# this is mostly for testing #}
@@ -37,14 +21,6 @@
     <a href="{{ path('talk_edit', talk.rp) }}">Edit (admin)</a>
     {% endif %}
 
-    {% set _sc = 'something' %}
-    <button {{ stimulus_controller(_sc,
-        controllerOutlets = { 'alert': '.message' }
-    ) }}
-            {{ stimulus_action(_sc, 'clicked' ) }}
-    >Click me
-    </button>
-    <h1>{{ talk.title }}</h1>
     {% set _listSc='rlist' %}
     <div id="reaction-list"
             {{ stimulus_controller(_listSc, {reactionCount: talk.reactions.count}) }}
@@ -115,36 +91,31 @@
     </twig:jsTwig>
 {% endblock %}
 
-{% block client_side_test %}
-
-<div hx-ext="client-side-templates">
-    <button hx-get="https://jsonplaceholder.typicode.com/todos/1"
-            hx-swap="innerHTML"
-            hx-target="#content"
-            mustache-template="foo">
-        Click Me
-    </button>
-
-
-    <p id="content">Start</p>
-    {% verbatim %}
-        <template id="foo">
-            {{ userId }} {{ title }}
-        </template>
-    </div>
-    {% endverbatim %}
-    {#        <p> {% raw %}{{userID}}{% endraw %} and {% raw %}{{id}}{% endraw %} and {% raw %}{{title}}{% endraw %} and {% raw %}{{completed}}{% endraw %}</p> #}
-
-    {% endblock %}
-
     {% block reactions %}
         <div hx-get="{{ path('talk__reactions', talk.rp) }}"
              hx-ext="debug"
              hx-target="this"
              hx-trigger="load, every 3s"
         >
-            {{ include('talk/_reactions.html.twig', {reactions: talk.reactions}) }}
+{#            {{ include('talk/_reactions.html.twig', {reactions: talk.reactions}) }}#}
             reactions go here.
 
         </div>
     {% endblock %}
+
+{% block controllerOutletsExample %}
+    {# example of controllerOutlets #}
+    {% set _sc = 'something' %}
+<button {{ stimulus_controller(_sc,
+    controllerOutlets = { 'alert': '.message' }
+) }}
+        {{ stimulus_action(_sc, 'clicked' ) }}
+>Click me
+</button>
+
+    <ol>
+        <li class="message" {{ stimulus_controller('alert') }}></li>
+        <li class="message" {{ stimulus_controller('alert') }}></li>
+    </ol>
+
+{% endblock %}

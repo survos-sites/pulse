@@ -34,3 +34,10 @@ bin/create-admins.sh
 bin/console app:load-data
 
 ```
+
+## Tac notes
+
+* Uses htmx to refresh the reactions page
+* Has ControllerOutlet example in talk/show
+* rlist_controller has a useMeta stimulus example
+* Uses bootstrap-bundle, but there's some code for playing with picocss
