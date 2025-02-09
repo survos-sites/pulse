@@ -47,7 +47,11 @@ final class AppMenuEventListener implements KnpMenuHelperInterface
         if ($this->isGranted('ROLE_ADMIN')) {
             $subMenu = $this->addSubmenu($menu, 'Survos');
             $this->add($subMenu, 'survos_commands');
-            $this->add($subMenu, 'survos_crawler_results');
+            // not available in test, though maybe it should be?
+            if ($this->env === 'dev')
+            {
+                $this->add($subMenu, 'survos_crawler_results');
+            }
             $this->add($menu, 'api_doc');
 
             $nestedMenu = $this->addSubmenu($menu, 'Credits');

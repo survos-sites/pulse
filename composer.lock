@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b43ed788ba65aaf5f6b1d5a4efe51861",
+    "content-hash": "da275db18471a832e5876b3b8652a365",
     "packages": [
         {
             "name": "api-platform/core",
@@ -12165,16 +12165,16 @@
         },
         {
             "name": "pierstoval/smoke-testing",
-            "version": "dev-main",
+            "version": "dev-tac",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Pierstoval/SmokeTesting.git",
-                "reference": "016514b4aa0cd77e92f91bffeefd37118e918a79"
+                "url": "https://github.com/tacman/SmokeTesting.git",
+                "reference": "89ee052c3bdfa1c7f7c9a7a986295c2dd8a5534c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pierstoval/SmokeTesting/zipball/016514b4aa0cd77e92f91bffeefd37118e918a79",
-                "reference": "016514b4aa0cd77e92f91bffeefd37118e918a79",
+                "url": "https://api.github.com/repos/tacman/SmokeTesting/zipball/89ee052c3bdfa1c7f7c9a7a986295c2dd8a5534c",
+                "reference": "89ee052c3bdfa1c7f7c9a7a986295c2dd8a5534c",
                 "shasum": ""
             },
             "require": {
@@ -12185,14 +12185,17 @@
                 "phpunit/phpunit": "^9.6|^10.0",
                 "symfony/maker-bundle": "^1.43"
             },
-            "default-branch": true,
             "type": "symfony-bundle",
             "autoload": {
                 "psr-4": {
                     "Pierstoval\\SmokeTesting\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Pierstoval\\SmokeTesting\\Tests\\": "tests/"
+                }
+            },
             "license": [
                 "LGPL-3.0-or-later"
             ],
@@ -12209,10 +12212,9 @@
                 "testing"
             ],
             "support": {
-                "issues": "https://github.com/Pierstoval/SmokeTesting/issues",
-                "source": "https://github.com/Pierstoval/SmokeTesting/tree/main"
+                "source": "https://github.com/tacman/SmokeTesting/tree/tac"
             },
-            "time": "2025-02-09T11:12:30+00:00"
+            "time": "2025-02-09T13:58:13+00:00"
         },
         {
             "name": "rector/rector",

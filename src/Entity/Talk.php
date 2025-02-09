@@ -30,7 +30,8 @@ class Talk implements RouteParametersInterface, \Stringable
     const MEILI_ROUTE='meili_talk';
     use RouteParametersTrait;
 
-    public const UNIQUE_IDENTIFIERS = ['talkId' => 'id'];
+    public const UNIQUE_PARAMETERS=['talkId' => 'code'];
+
     #[ORM\Column]
     #[ORM\GeneratedValue()]
     #[Groups(['talk.read'])]

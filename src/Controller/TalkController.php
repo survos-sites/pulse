@@ -4,7 +4,7 @@
 
 namespace App\Controller;
 
-use ApiPlatform\Api\IriConverterInterface;
+use ApiPlatform\Metadata\IriConverterInterface;
 use App\Entity\Reaction;
 use App\Entity\Talk;
 use App\Form\ReactionFormType;

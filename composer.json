@@ -125,7 +125,7 @@
         "dbrekelmans/bdi": "^1.3",
         "phpstan/phpstan": "^2.0",
         "phpunit/phpunit": "^11.4||^12.0",
-        "pierstoval/smoke-testing": "dev-main",
+        "pierstoval/smoke-testing": "dev-tac",
         "rector/rector": "^2.0",
         "survos/maker-bundle": "^1.5",
         "symfony/browser-kit": "^7.0",
@@ -135,5 +135,11 @@
         "symfony/stopwatch": "^7.0",
         "symfony/web-profiler-bundle": "^7.0",
         "zenstruck/browser": "^1.9"
+    },
+    "repositories": {
+        "knp_menu_bundle": {
+            "type": "vcs",
+            "url": "git@github.com:tacman/SmokeTesting.git"
+        }
     }
 }
