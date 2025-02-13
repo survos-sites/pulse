@@ -17,6 +17,10 @@
                 "enabled": true,
                 "fetch": "eager"
             },
+            "device-motion": {
+                "enabled": true,
+                "fetch": "eager"
+            },
             "device-orientation": {
                 "enabled": true,
                 "fetch": "eager"
@@ -30,6 +34,10 @@
                 "fetch": "eager"
             },
             "install": {
+                "enabled": true,
+                "fetch": "eager"
+            },
+            "network-information": {
                 "enabled": true,
                 "fetch": "eager"
             },
@@ -49,7 +57,15 @@
                 "enabled": true,
                 "fetch": "eager"
             },
+            "speech-synthesis": {
+                "enabled": true,
+                "fetch": "eager"
+            },
             "sync-broadcast": {
+                "enabled": true,
+                "fetch": "eager"
+            },
+            "touch": {
                 "enabled": true,
                 "fetch": "eager"
             },
@@ -118,16 +134,6 @@
         "@survos/workflow-helper-bundle": {
             "workflow": {
                 "enabled": true,
-                "fetch": "eager"
-            }
-        },
-        "@symfony/ux-turbo": {
-            "turbo-core": {
-                "enabled": true,
-                "fetch": "eager"
-            },
-            "mercure-turbo-stream": {
-                "enabled": false,
                 "fetch": "eager"
             }
         }

@@ -7,11 +7,10 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\Framework\Attributes\TestWith;
 use Pierstoval\SmokeTesting\SmokeTestStaticRoutes;
-use Survos\CrawlerBundle\Tests\VisitLinksTest;
+use Survos\CrawlerBundle\Tests\BaseVisitLinksTest;
 
-class AllRoutesTest extends VisitLinksTest
+class AllRoutesTest extends BaseVisitLinksTest
 {
-    // That's all!
 
 //    #[DataProvider('linksToVisit')]
 //    #[TestWith(['tacman@gmail.com',User::class,'/api', 200])]

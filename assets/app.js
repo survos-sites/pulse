@@ -10,9 +10,11 @@ import './styles/app.css';
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
 // import '@picocss/pico/css/pico.min.css'
 import 'swiper/css/bundle' // for stimulus-carousel
-// import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootswatch/dist/sandstone/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootswatch/dist/sandstone/bootstrap.min.css';
 import 'bootstrap';
+
+
 
 // import ons from 'onsenui/esm/ons'
 // import 'onsenui/css/onsen-css-components.min.css'
