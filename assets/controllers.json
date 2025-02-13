@@ -114,23 +114,6 @@
                 "autoimport": []
             }
         },
-        "@survos/pwa-extra-bundle": {
-            "detector": {
-                "enabled": true,
-                "fetch": "lazy",
-                "autoimport": []
-            },
-            "toggle_online": {
-                "enabled": true,
-                "fetch": "lazy",
-                "autoimport": []
-            },
-            "install": {
-                "enabled": true,
-                "fetch": "lazy",
-                "autoimport": []
-            }
-        },
         "@survos/workflow-helper-bundle": {
             "workflow": {
                 "enabled": true,

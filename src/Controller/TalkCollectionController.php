@@ -69,24 +69,4 @@ class TalkCollectionController extends AbstractController
         ]);
     }
 
-    #[Route('talk/new', name: 'talk_new')]
-    public function new(Request $request): Response
-    {
-        $talk = new Talk();
-        $form = $this->createForm(TalkType::class, $talk);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->entityManager;
-            $entityManager->persist($talk);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('talk_index');
-        }
-
-        return $this->render('talk/new.html.twig', [
-            'talk' => $talk,
-            'form' => $form->createView(),
-        ]);
-    }
 }

@@ -72,34 +72,5 @@ class TalkController extends AbstractController
 
     }
 
-    #[Route('/edit', name: 'edit', options: ['expose' => true])]
-    public function edit(Request $request, Talk $talk): Response
-    {
-        $form = $this->createForm(TalkType::class, $talk);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->entityManager->flush();
-
-            return $this->redirectToRoute('talk_index');
-        }
-
-        return $this->render('talk/edit.html.twig', [
-            'talk' => $talk,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    #[Route('/delete', name: 'delete', methods: [Request::METHOD_DELETE])]
-    public function delete(Request $request, Talk $talk): Response
-    {
-        // hard-coded to getId, should be get parameter of uniqueIdentifiers()
-        if ($this->isCsrfTokenValid('delete'.$talk->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->entityManager;
-            $entityManager->remove($talk);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('talk_index');
-    }
 }

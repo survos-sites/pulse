@@ -13,28 +13,26 @@ class FunctionalTest extends WebTestCase
 {
     use FunctionalSmokeTester;
 
-    #[TestWith(['/api', 'api_entrypoint', 'GET'])]
-    #[TestWith(['/api', 'api_entrypoint', 'HEAD'])]
-    #[TestWith(['/api/docs', 'api_doc', 'GET'])]
-    #[TestWith(['/api/docs', 'api_doc', 'HEAD'])]
-    #[TestWith(['/api/reactions', 'reactions_doctrine', 'GET'])]
-    #[TestWith(['/api/talks', 'meili_talk', 'GET'])]
-    #[TestWith(['/js/routing', 'fos_js_routing_js', 'GET'])]
-    #[TestWith(['/auth/profile', 'oauth_profile', 'GET'])]
-    #[TestWith(['/auth/providers', 'oauth_providers', 'GET'])]
-    #[TestWith(['/crawler/crawlerdata', 'survos_crawler_data', 'GET'])]
-    #[TestWith(['/workflow/workflows', 'survos_workflows', 'GET'])]
-    #[TestWith(['/logout', 'app_logout', 'GET'])]
-    #[TestWith(['/', 'app_homepage', 'GET'])]
-    #[TestWith(['/register', 'app_register', 'GET'])]
-    #[TestWith(['/verify/email', 'app_verify_email', 'GET'])]
-    #[TestWith(['/login', 'app_login', 'GET'])]
-    #[TestWith(['/talks/browse/', 'talk_browse', 'GET'])]
-    #[TestWith(['/talks/', 'talk_index', 'GET'])]
-    #[TestWith(['/talks/symfony_crud_index', 'talk_symfony_crud_index', 'GET'])]
-    #[TestWith(['/talkstalk/new', 'talk_new', 'GET'])]
+    #[TestWith(['GET', 'https://pulse.wip/api', 'api_entrypoint'])]
+    #[TestWith(['HEAD', 'https://pulse.wip/api', 'api_entrypoint'])]
+    #[TestWith(['GET', 'https://pulse.wip/api/docs', 'api_doc'])]
+    #[TestWith(['HEAD', 'https://pulse.wip/api/docs', 'api_doc'])]
+    #[TestWith(['GET', 'https://pulse.wip/api/reactions', 'reactions_doctrine'])]
+    #[TestWith(['GET', 'https://pulse.wip/api/talks', 'meili_talk'])]
+    #[TestWith(['GET', 'https://pulse.wip/js/routing', 'fos_js_routing_js'])]
+    #[TestWith(['GET', 'https://pulse.wip/auth/profile', 'oauth_profile'])]
+    #[TestWith(['GET', 'https://pulse.wip/auth/providers', 'oauth_providers'])]
+    #[TestWith(['GET', 'https://pulse.wip/crawler/crawlerdata', 'survos_crawler_data'])]
+    #[TestWith(['GET', 'https://pulse.wip/workflow/workflows', 'survos_workflows'])]
+    #[TestWith(['GET', 'https://pulse.wip/', 'app_homepage'])]
+    #[TestWith(['GET', 'https://pulse.wip/register', 'app_register'])]
+    #[TestWith(['GET', 'https://pulse.wip/verify/email', 'app_verify_email'])]
+    #[TestWith(['GET', 'https://pulse.wip/login', 'app_login'])]
+    #[TestWith(['GET', 'https://pulse.wip/talks/browse/', 'talk_browse'])]
+    #[TestWith(['GET', 'https://pulse.wip/talks/', 'talk_index'])]
+    #[TestWith(['GET', 'https://pulse.wip/talks/symfony_crud_index', 'talk_symfony_crud_index'])]
     #[TestDox('/$method $url ($route)')]
-    public function testRoute(string $url, string $route, string $method = 'GET'): void
+    public function testRoute(string $method, string $url, string $route): void
     {
         $this->runFunctionalTest(
             FunctionalTestData::withUrl($url)

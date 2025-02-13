@@ -176,9 +176,6 @@
     "survos/maker-bundle": {
         "version": "1.5.182"
     },
-    "survos/pwa-extra-bundle": {
-        "version": "1.5.182"
-    },
     "survos/workflow-helper-bundle": {
         "version": "1.5.407"
     },

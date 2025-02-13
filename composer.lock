@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1fa1574699f5b38352a7b0bc08831420",
+    "content-hash": "1e13dc291e7bc9b2f44ab986d5d9fdba",
     "packages": [
         {
             "name": "api-platform/core",
@@ -4489,68 +4489,6 @@
                 }
             ],
             "time": "2024-12-09T14:44:56+00:00"
-        },
-        {
-            "name": "survos/pwa-extra-bundle",
-            "version": "1.5.503",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/survos/SurvosPwaExtraBundle.git",
-                "reference": "3ef2d8cf8f46d47d670d8f1aea825e63cbde2558"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/survos/SurvosPwaExtraBundle/zipball/3ef2d8cf8f46d47d670d8f1aea825e63cbde2558",
-                "reference": "3ef2d8cf8f46d47d670d8f1aea825e63cbde2558",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.3",
-                "spomky-labs/pwa-bundle": "*",
-                "survos/core-bundle": "^1.5",
-                "symfony/asset-mapper": "^6.4 || ^7.1",
-                "symfony/config": "^6.4 || ^7.1",
-                "symfony/dependency-injection": "^6.4 || ^7.1",
-                "symfony/http-kernel": "^6.4 || ^7.1",
-                "twig/twig": "^3.4"
-            },
-            "require-dev": {
-                "phpstan/phpstan": "^2.0",
-                "symfony/browser-kit": "^6.4 || ^7.1",
-                "symfony/framework-bundle": "^6.4 || ^7.1",
-                "symfony/phpunit-bridge": "^6.4 || ^7.1",
-                "symfony/twig-bundle": "^6.4 || ^7.1",
-                "symfony/ux-twig-component": "^2.22",
-                "symfony/var-dumper": "^6.4 || ^7.1",
-                "zenstruck/console-extra": "^1.4"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "Survos\\PwaExtraBundle\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Extra tools for https://github.com/Spomky-Labs/phpwa",
-            "keywords": [
-                "pwa",
-                "symfony",
-                "symfony-ux"
-            ],
-            "support": {
-                "issues": "https://github.com/survos/SurvosPwaExtraBundle/issues",
-                "source": "https://github.com/survos/SurvosPwaExtraBundle/tree/1.5.503"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/kbond",
-                    "type": "github"
-                }
-            ],
-            "time": "2024-12-03T12:26:53+00:00"
         },
         {
             "name": "survos/workflow-helper-bundle",
@@ -12163,7 +12101,7 @@
             "dist": {
                 "type": "path",
                 "url": "/home/tac/g/tacman/SmokeTesting",
-                "reference": "98ba3a0a078e102025f25cd4f1a6dbf914b467d6"
+                "reference": "363bb7029da5ea9e71a5fbec3030945bb3436727"
             },
             "require": {
                 "php": "^8.1",
