@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1e13dc291e7bc9b2f44ab986d5d9fdba",
+    "content-hash": "c0768fcc4d817fa8b8d8d2681445665b",
     "packages": [
         {
             "name": "api-platform/core",
@@ -2121,16 +2121,16 @@
         },
         {
             "name": "knplabs/knp-menu",
-            "version": "v3.6.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpMenu.git",
-                "reference": "ac96b711cf7b4178747b0ecde79d7e5e05dbcd28"
+                "reference": "f45241188819e10581d32bbfda9badc865760c2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/ac96b711cf7b4178747b0ecde79d7e5e05dbcd28",
-                "reference": "ac96b711cf7b4178747b0ecde79d7e5e05dbcd28",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/f45241188819e10581d32bbfda9badc865760c2d",
+                "reference": "f45241188819e10581d32bbfda9badc865760c2d",
                 "shasum": ""
             },
             "require": {
@@ -2151,6 +2151,7 @@
             "suggest": {
                 "twig/twig": "for the TwigRenderer and the integration with your templates"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2188,9 +2189,9 @@
             ],
             "support": {
                 "issues": "https://github.com/KnpLabs/KnpMenu/issues",
-                "source": "https://github.com/KnpLabs/KnpMenu/tree/v3.6.0"
+                "source": "https://github.com/KnpLabs/KnpMenu/tree/master"
             },
-            "time": "2024-12-20T10:10:51+00:00"
+            "time": "2025-02-09T19:35:01+00:00"
         },
         {
             "name": "knplabs/knp-menu-bundle",
@@ -13772,12 +13773,13 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "knplabs/knp-menu": 20,
         "pierstoval/smoke-testing": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=8.2",
+        "php": "^8.3",
         "ext-ctype": "*",
         "ext-iconv": "*"
     },
