@@ -3,7 +3,9 @@
 {% block description "Testing meta tags, use-meta " ~ talk.title %}
 {% block meta %}
         {{ parent() }}
-            <meta name="userId" content="12345678">
+        <meta name="userId" content="12345678">
+    {# tests __toString method of talk #}
+        <meta name="talkString" content="{{ talk }}">
     {% endblock %}
 
 {% block body %}
@@ -16,9 +18,7 @@
     {# this is mostly for testing #}
     {% if app.environment == 'test' %}
         <a href="{{ path('talk__reactions', talk.rp) }}">_reactions</a>
-    {% endif %}
-    {% if is_granted('ROLE_ADMIN') %}
-    <a href="{{ path('talk_edit', talk.rp) }}">Edit (admin)</a>
+        <a href="{{ path('talk__reactions', talk.rp({embedded: true})) }}">_reactions</a>
     {% endif %}
 
     {% set _listSc='rlist' %}
