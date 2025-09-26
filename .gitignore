@@ -31,3 +31,5 @@ phpstan.neon
 
 coverage
 
+config.bat
+node_modules

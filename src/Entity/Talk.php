@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\DBAL\Types\Types;
 use Survos\CoreBundle\Entity\RouteParametersInterface;
 use Survos\CoreBundle\Entity\RouteParametersTrait;
+use Survos\EzBundle\Attribute\EzAdmin;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Serializer\Attribute\Groups;
@@ -25,6 +26,7 @@ use Symfony\Component\Serializer\Attribute\Groups;
         new GetCollection(name: self::MEILI_ROUTE)],
     normalizationContext: ['groups' => ['talk.read', 'rp']]
 )]
+#[EzAdmin()]
 class Talk implements RouteParametersInterface, \Stringable
 {
     const MEILI_ROUTE='meili_talk';
