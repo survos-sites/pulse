@@ -107,54 +107,6 @@
             "statusCode": null,
             "foundOn": "/talks/symfony_crud_index",
             "memory": null
-        },
-        "/talk/Opening-Welcome-session/_reactions": {
-            "path": "/talk/Opening-Welcome-session/_reactions",
-            "seen": true,
-            "depth": 3,
-            "linkStatus": null,
-            "username": null,
-            "route": "talk__reactions",
-            "rp": null,
-            "statusCode": 200,
-            "foundOn": "/talk/Opening-Welcome-session/",
-            "memory": null
-        },
-        "/talk/Opening-Welcome-session/_reactions?embedded=1": {
-            "path": "/talk/Opening-Welcome-session/_reactions?embedded=1",
-            "seen": true,
-            "depth": 3,
-            "linkStatus": null,
-            "username": null,
-            "route": "talk__reactions",
-            "rp": null,
-            "statusCode": 200,
-            "foundOn": "/talk/Opening-Welcome-session/",
-            "memory": null
-        },
-        "/talk/Keynote/_reactions": {
-            "path": "/talk/Keynote/_reactions",
-            "seen": true,
-            "depth": 3,
-            "linkStatus": null,
-            "username": null,
-            "route": "talk__reactions",
-            "rp": null,
-            "statusCode": null,
-            "foundOn": "/talk/Keynote/",
-            "memory": null
-        },
-        "/talk/Keynote/_reactions?embedded=1": {
-            "path": "/talk/Keynote/_reactions?embedded=1",
-            "seen": true,
-            "depth": 3,
-            "linkStatus": null,
-            "username": null,
-            "route": "talk__reactions",
-            "rp": null,
-            "statusCode": null,
-            "foundOn": "/talk/Keynote/",
-            "memory": null
         }
     },
     "tacman@gmail.com|App\\Entity\\User|https://pulse.wip": {

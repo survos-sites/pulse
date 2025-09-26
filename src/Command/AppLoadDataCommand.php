@@ -8,21 +8,16 @@ use App\Repository\TalkRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
+use Symfony\Component\Console\Attribute\Option;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\String\Slugger\AsciiSlugger;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\Yaml\Yaml;
-use Zenstruck\Console\Attribute\Option;
-use Zenstruck\Console\ConfigureWithAttributes;
-use Zenstruck\Console\InvokableServiceCommand;
-use Zenstruck\Console\IO;
-use Zenstruck\Console\RunsCommands;
-use Zenstruck\Console\RunsProcesses;
 
 #[AsCommand('app:load-data', 'Load the talk schedule and users')]
-final class AppLoadDataCommand extends InvokableServiceCommand
+final class AppLoadDataCommand
 {
-    use RunsCommands;
-    use RunsProcesses;
 
     public function __construct(
         private TalkRepository $talkRepository,
@@ -32,15 +27,14 @@ final class AppLoadDataCommand extends InvokableServiceCommand
         private array $existingTalks = []
     )
     {
-        parent::__construct();
     }
 
     public function __invoke(
-        IO $io,
+        SymfonyStyle $io,
 
         #[Option(description: 'reset the database first')] bool $reset = false,
         #[Option(description: 'limit the number of talks')] int $limit = 0,
-    ): void {
+    ): int {
 
         if ($reset) {
             foreach ($this->talkRepository->findAll() as $talk) {
@@ -94,6 +88,7 @@ final class AppLoadDataCommand extends InvokableServiceCommand
         $io->success('Talks now in database: ' . $this->talkRepository->count());
 
         // reactions?  really we need fixtures for tests.
+        return Command::SUCCESS;
     }
 
     private function loadExisting(): void

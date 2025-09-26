@@ -152,7 +152,7 @@ return [
         'type' => 'css',
     ],
     'htmx.org' => [
-        'version' => '2.0',
+        'version' => '1.9.12',
     ],
     'stimulus-timeago' => [
         'version' => '4.1.0',
@@ -280,5 +280,21 @@ return [
     ],
     'datatables.net-plugins/i18n/de-DE.mjs' => [
         'version' => '2.1.7',
+    ],
+    'simple-datatables' => [
+        'version' => '9.2.2',
+    ],
+    'simple-datatables/dist/style.min.css' => [
+        'version' => '9.2.2',
+        'type' => 'css',
+    ],
+    'idb' => [
+        'version' => '8.0.3',
+    ],
+    'idb-keyval' => [
+        'version' => '6.2.2',
+    ],
+    '@spomky-labs/pwa/helpers' => [
+        'path' => './vendor/spomky-labs/pwa-bundle/assets/src/helpers.js',
     ],
 ];
